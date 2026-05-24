@@ -1,26 +1,43 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * ARVIA — Market Intelligence Dashboard Theme
+ * Dark-mode financial terminal aesthetic
  */
 
 import '@/global.css';
 
 import { Platform } from 'react-native';
 
+export const ArviaPalette = {
+  bg: '#060a10',
+  bg2: '#0b1220',
+  bg3: '#101828',
+  border: 'rgba(255,255,255,0.07)',
+  gold: '#f0b429',
+  gold2: '#ffd166',
+  cyan: '#06d6a0',
+  red: '#ef4444',
+  blue: '#3b82f6',
+  purple: '#8b5cf6',
+  text: '#e2e8f0',
+  muted: '#64748b',
+  card: 'rgba(255,255,255,0.03)',
+  cardSolid: '#0d1526',
+} as const;
+
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: ArviaPalette.text,
+    background: ArviaPalette.bg,
+    backgroundElement: ArviaPalette.bg2,
+    backgroundSelected: ArviaPalette.bg3,
+    textSecondary: ArviaPalette.muted,
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: ArviaPalette.text,
+    background: ArviaPalette.bg,
+    backgroundElement: ArviaPalette.bg2,
+    backgroundSelected: ArviaPalette.bg3,
+    textSecondary: ArviaPalette.muted,
   },
 } as const;
 
@@ -28,13 +45,9 @@ export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
     sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
   },
   default: {
@@ -44,10 +57,10 @@ export const Fonts = Platform.select({
     mono: 'monospace',
   },
   web: {
-    sans: 'var(--font-display)',
+    sans: "'DM Sans', var(--font-display)",
     serif: 'var(--font-serif)',
     rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
+    mono: "'Space Mono', var(--font-mono)",
   },
 });
 
@@ -62,4 +75,4 @@ export const Spacing = {
 } as const;
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
+export const MaxContentWidth = 1200;

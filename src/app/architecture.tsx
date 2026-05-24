@@ -2,13 +2,10 @@ import React from 'react';
 import { ScrollView, StyleSheet, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SectionLabel } from '@/components/SectionLabel';
-import { StockDetail } from '@/components/StockDetail';
-import { ConflictBox } from '@/components/ConflictBox';
-import { SentimentModels } from '@/components/SentimentModels';
-import { NewsFeed } from '@/components/NewsFeed';
+import { BlockDiagram } from '@/components/BlockDiagram';
 import { ArviaPalette, BottomTabInset, Spacing } from '@/constants/theme';
 
-export default function DetailScreen() {
+export default function ArchitectureScreen() {
   const insets = useSafeAreaInsets();
 
   return (
@@ -22,14 +19,8 @@ export default function DetailScreen() {
         },
       ]}
     >
-      <SectionLabel title="STOCK ANALYSIS" />
-      <StockDetail />
-      <SectionLabel title="CONFLICT ANALYSIS" />
-      <ConflictBox />
-      <SectionLabel title="SENTIMENT ANALYSIS" />
-      <SentimentModels />
-      <SectionLabel title="NEWS FEED" />
-      <NewsFeed />
+      <SectionLabel title="SYSTEM BLOCK DIAGRAM" />
+      <BlockDiagram />
     </ScrollView>
   );
 }

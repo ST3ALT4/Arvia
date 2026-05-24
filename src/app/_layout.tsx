@@ -1,14 +1,25 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import { DarkTheme, ThemeProvider } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import AppTabs from '@/components/app-tabs';
+import { ArviaPalette } from '@/constants/theme';
+
+const arviaTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    background: ArviaPalette.bg,
+    card: ArviaPalette.bg2,
+    text: ArviaPalette.text,
+    border: ArviaPalette.border,
+    primary: ArviaPalette.gold,
+  },
+};
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
+    <ThemeProvider value={arviaTheme}>
+      <StatusBar style="light" />
       <AppTabs />
     </ThemeProvider>
   );
