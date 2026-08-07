@@ -1,4 +1,4 @@
-export default function Topbar() {
+export default function Topbar({ activeView, onViewChange }) {
   return (
     <header className="topbar">
       <div className="brand">
